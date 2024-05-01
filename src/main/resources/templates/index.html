@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" th:href="@{/css/index.css}">
+  <title>タイトル画面</title>
+</head>
+<body>
+  <div class="container" style=text-align:center>
+ 	<br>
+ 	<br>
+ 	<br>
+ 	<br>
+ 	<br>
+ 	<div class="main">
+ 	  <h1><span class="red">HIT</span> and <span class="blue">BLOW</span></h1>
+      <br>
+	  <br>
+      <br>
+      <form action="/start" th:method="get">
+        <button class="startBtn" type="submit">スタート</button>
+      </form>
+      <dialog>
+      　 <div class="howto">
+  		  <h2>遊び方</h2>
+	  	  <p class="head">4つの"？"に隠れている数字を当てよう！</p>
+		  <p>"？"に隠れている数字はいずれも同じ数字になることはない</p>
+		  <p>また、解答するときも同じ数字を入力することはできない</p>
+		  <p>用語</p>
+		  <div class="rule">
+		    <pre><span class="hitblow">HIT</span>&#009;: 数字と位置、どちらも合っている数字の数</pre>
+		    <pre><span class="hitblow">BLOW</span>&#009;: 数字は含まれているが位置が違う数字の数</pre>
+	  	  </div>
+		  <br>
+		  <p>8回以内に正解出来たらスゴイ！何回で当てられるかな？</p>
+		  <p class="back">外側をクリックで戻る</p>
+	    </div>
+      </dialog>
+      <input class="startBtn" id="open" type="button" value="遊び方">
+      <form action="/title" th:method="get">
+      	<button class="startBtn" type="submit">やめる</button>
+      </form>
+      </div>
+      <div class="side" th:object="${UserEntity}">
+      	<h3>infomation of [[*{userName}]]</h3>
+      	<div class="parsonalInfo">
+      	  <p>最後に遊んだ日<br>[[*{lastPlay}]]</p>
+      	  <p>累計プレイ回数 : [[*{numOfPlay}]] 回</p>
+      	  <p>平均クリア回数 : [[*{average}]] 回</p>
+      	  <p>最速クリア記録 : [[*{shortestClear}]]</p>
+      	  <p>最遅クリア記録 : [[*{longestClear}]]</p>
+      	</div>
+    	<div class="ranks">
+      	  <details>
+      	  	<summary>平均クリア回数 TOP３</summary>
+      	  	<div class="ranked" th:each="List:${ranking}">
+      	  	  <label class="labels"><li class="ranking">第 [[${List.rank}]] 位 : </li>[[${List.ave}]] 回([[${List.nameAve}]])</label>
+      	  	</div>
+      	  </details>
+      	  <details>
+      	  	<summary>最短クリア回数 TOP３</summary>
+      	  	<div class="ranked" th:each="List:${ranking}">
+      	  	  <label class="labels"><li class="ranking">第 [[${List.rank}]] 位 : </li>[[${List.fastest}]] 回([[${List.nameFast}]])</label>
+      	  	</div>
+      	  </details>
+      	</div>
+      </div>
+    </div>    
+  <script src="js/index.js"></script>
+</body>
+</html>

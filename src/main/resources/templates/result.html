@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<title>結果</title>
+</head>
+<body>
+  <div style=text-align:center>
+  	<br>
+ 	<h1>[[${title}]]</h1>
+ 	<br>
+ 	  <h3>
+		  <input class="ans digit1" type="text" name="guessDigit1" th:value="${answer.ansDigit1}" onclick="DropDown(event)" readonly>
+		  <input class="ans digit2" type="text" name="guessDigit2" th:value="${answer.ansDigit2}" onclick="DropDown(event)" readonly>
+		  <input class="ans digit3" type="text" name="guessDigit3" th:value="${answer.ansDigit3}" onclick="DropDown(event)" readonly>
+		  <input class="ans digit4" type="text" name="guessDigit4" th:value="${answer.ansDigit4}" onclick="DropDown(event)" readonly>
+ 	  </h3>
+ 	  <font color="red" size="5">[[${model}]]</font>
+ 	<p align="center">結果</p>
+ 	<div class="resultlist">
+	  <div id="scroll">
+	 	<table align="center">
+	 	  <tbody>
+	  	    <tr th:each="List:${List}">
+	          <th>[[${List.id}]]&nbsp;回目</th>
+	      	  <td class="digits">[[${List.userChoiceDigit1}]]</td>
+	      	  <td class="digits">[[${List.userChoiceDigit2}]]</td>
+	      	  <td class="digits">[[${List.userChoiceDigit3}]]</td>
+	      	  <td class="digits">[[${List.userChoiceDigit4}]]</td>
+	      	  <td class="hit">HIT&nbsp;:&nbsp;[[${List.countHit}]]</td>
+	      	  <td class="blow">BLOW&nbsp;:&nbsp;[[${List.countBlow}]]</td>
+	    	</tr>
+	      </tbody>
+	    </table>
+	  </div>
+ 	</div>    
+    <form th:action="@{/index}" method="get">
+      <button class="toIndex">タイトルへ</button>
+    </form>
+  </div>
+  <script src="js/result.js"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+@charset "UTF-8";
+
+body{
+	text-align: center;
+	background-color: #3461b6;
+	width: 100%;
+    max-width: 1280px;
+    margin: auto;
+}
+
+.title{
+	display: inline-block;
+	padding: 0 60px;
+	background-color: #1f1f1f;
+	color: #35A2B5;
+}
+
+.loginForm{
+	position: relative;
+	left: 20px;
+	width: 400px;
+	height: 100px;
+	margin: 0 auto;
+}
+
+.form{
+	position: relative;
+	display: block;
+	width: 350px;
+	margin-top: 15px;
+	padding: 1.1rem 0.6rem 0.6rem;
+	border: 3px solid;
+	border-radius: 10px;
+	font-size: 1.3rem;
+	border-color: white;
+	transition: border-bottom 0.5s;
+	outline: none;
+	background-color: #ffffff;
+}
+
+.form.contained{
+	border-color: white;
+	border-bottom: 3px solid #B63461;
+}
+
+.formLabel{
+	position: absolute;
+	font-size: 1em;
+	color: gray;
+	transition: 250ms;
+	left: 1.2rem;
+}
+
+.email{
+	top: 17px;
+}
+
+.password{
+	top: 87px;
+}
+
+.email.focus{
+	top: 0px;
+	left: 1rem;
+	font-size: 14px;
+	color: #B63461;
+}
+
+.password.focus{
+	top: 72px;
+	left: 1rem;
+	font-size: 14px;
+	color: #B63461;
+}
+
+dialog{
+    border: 5px solid #1f1f1f;
+    border-radius: 30px;
+    padding-top: 0;
+    box-shadow: 0 0 20px #F0E7D6;
+    background-color: #F6F8FC;
+}
+
+.newcomer{
+	text-align: center;
+}
+
+.head{
+	margin: auto;
+}
+
+.registForm{
+	margin-bottom: 10px;
+    padding: 3px 5px;
+    height: 1.2rem;
+	background-color: white;
+	border: none;
+	border-bottom: 1px solid;
+	outline: none;
+}
+
+.registForm:focus{
+	border-bottom-color: red;
+}
+
+.btn{
+	margin: 7.5px;
+	background-color: white;
+	border: 3px solid dimgray;
+	cursor: pointer;
+}
+
+.googleBtn{
+	display: inline-block;
+	margin-top: 15px;
+}
+
+.loginBtn{
+    display: inline-block;
+    position: relative;
+    top: -14px;
+    padding: 7px 5px;
+    left: -15px;
+    font-size: 1.1rem;
+    border: 2px solid;
+    border-radius: 20%;
+    background-color: white;
+    color: #B54835;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.loginBtn:hover{
+	border-color: #3461b6;
+	background-color: #B54835;
+	color: #fff;
+}
+
+.registBtn{
+	margin-top: 6em;
+	padding: 5px 15px;
+	background-color: white;
+	border: 3px solid #3461b6;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: 750ms ease;
+}
+
+.registBtn:hover {
+	background-color: #A2B53590;
+	color: white;
+	border: 3px solid white; 
+}

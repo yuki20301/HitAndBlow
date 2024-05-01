@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<title>ヒットアンドブロー</title>
+</head>
+<body>
+  <div style=text-align:center>
+  	<br>
+ 	<h1>[[${title}]]&nbsp;:&emsp;[[${answer}]]</h1>
+ 	<br>
+ 	<form th:action="@{/answer}" method="post">
+ 	  <h3>
+ 	    ANSWER&nbsp;:&nbsp;
+		<div class="dropdown">
+		  <input class="ans digit1" type="text" name="guessDigit1" value="" onclick="DropDown(event)" readonly>
+		  <input class="ans digit2" type="text" name="guessDigit2" value="" onclick="DropDown(event)" readonly>
+		  <input class="ans digit3" type="text" name="guessDigit3" value="" onclick="DropDown(event)" readonly>
+		  <input class="ans digit4" type="text" name="guessDigit4" value="" onclick="DropDown(event)" readonly>
+		  <div class="numLayer" onclick="DropDownOutside(event)">
+		  	<ul class="menu">
+		  	  <li class="numbers" data-value="1" onclick="DropDownMenu(event)">1</li>
+		  	  <li class="numbers" data-value="2" onclick="DropDownMenu(event)">2</li>
+		  	  <li class="numbers" data-value="3" onclick="DropDownMenu(event)">3</li>
+		  	  <li class="numbers" data-value="4" onclick="DropDownMenu(event)">4</li>
+		  	  <li class="numbers" data-value="5" onclick="DropDownMenu(event)">5</li>
+		  	  <li class="numbers" data-value="6" onclick="DropDownMenu(event)">6</li>
+		  	  <li class="numbers" data-value="7" onclick="DropDownMenu(event)">7</li>
+		  	  <li class="numbers" data-value="8" onclick="DropDownMenu(event)">8</li>
+		  	  <li class="numbers" data-value="9" onclick="DropDownMenu(event)">9</li>
+		  	  <li class="numbers" data-value="0" onclick="DropDownMenu(event)">0</li>
+		  	</ul>
+		  </div>
+		</div>
+ 	    <button class="guess" type="submit">GUESS</button>
+ 	  </h3>
+ 	  <font color="red" size="5">[[${model}]]</font>
+ 	</form>
+ 	<p align="center">結果</p>
+ 	<div class="resultlist">
+	  <div id="scroll">
+	 	<table align="center">
+	 	  <tbody>
+	  	    <tr th:each="List:${List}">
+	          <th>[[${List.id}]]&nbsp;回目</th>
+	      	  <td class="digits">[[${List.userChoiceDigit1}]]</td>
+	      	  <td class="digits">[[${List.userChoiceDigit2}]]</td>
+	      	  <td class="digits">[[${List.userChoiceDigit3}]]</td>
+	      	  <td class="digits">[[${List.userChoiceDigit4}]]</td>
+	      	  <td class="hit">HIT&nbsp;:&nbsp;[[${List.countHit}]]</td>
+	      	  <td class="blow">BLOW&nbsp;:&nbsp;[[${List.countBlow}]]</td>
+	    	</tr>
+	      </tbody>
+	    </table>
+	  </div>
+ 	</div>    
+    <form th:action="@{/retired}" method="get">
+      <button class="toIndex">あきらめる</button>
+    </form>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>
