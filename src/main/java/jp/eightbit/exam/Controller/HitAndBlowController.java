@@ -113,8 +113,6 @@ public class HitAndBlowController {
 			}
 		}
 		
-		//コメントしてみた
-		
 		model.addAttribute("UserEntity", userE);
 		model.addAttribute("ranking", habS.generateRanking(habS.findall()));
 		return path;
